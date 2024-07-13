@@ -6,14 +6,16 @@ import "animate.css";
 import TrackVisibility from "react-on-screen";
 
 export const Banner = () => {
+  // State variables for text rotation logic
   const [loopNum, setLoopNum] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
   const [text, setText] = useState("");
   const [delta, setDelta] = useState(300 - Math.random() * 100);
   const [index, setIndex] = useState(1);
-  const toRotate = ["Web ", "Designer", " Designer"];
+  const toRotate = ["Design ", "Develop", " Deliver"];
   const period = 2000;
 
+  // Effect to handle the text update interval
   useEffect(() => {
     let ticker = setInterval(() => {
       tick();
@@ -24,6 +26,7 @@ export const Banner = () => {
     };
   }, [text]);
 
+  // Function to update the text in the rotating animation
   const tick = () => {
     let i = loopNum % toRotate.length;
     let fullText = toRotate[i];
@@ -54,7 +57,7 @@ export const Banner = () => {
   return (
     <section className="banner" id="home">
       <Container>
-        <Row className="aligh-items-center">
+        <Row className="align-items-center">
           <Col xs={12} md={6} xl={7}>
             <TrackVisibility>
               {({ isVisible }) => (
@@ -63,9 +66,9 @@ export const Banner = () => {
                     isVisible ? "animate__animated animate__fadeIn" : ""
                   }
                 >
-                  <span className="tagline">Welcome to my Portfolio</span>
+                  <span className="tagline">Welcome to Company Name</span>
                   <h1>
-                    {`Hi! I'm Judy`}{" "}
+                    {`Hi! We `}{" "}
                     <span
                       className="txt-rotate"
                       dataPeriod="1000"
@@ -75,11 +78,10 @@ export const Banner = () => {
                     </span>
                   </h1>
                   <p>
-                    Lorem Ipsum is simply dummy text of the printing and
-                    typesetting industry. Lorem Ipsum has been the industry's
-                    standard dummy text ever since the 1500s, when an unknown
-                    printer took a galley of type and scrambled it to make a
-                    type specimen book.
+                    We are a company that specializes in design, development,
+                    and delivery of web solutions. Our expertise ranges from
+                    creating stunning designs to developing robust applications
+                    and ensuring their seamless delivery.
                   </p>
                   <button onClick={() => console.log("connect")}>
                     Let’s Connect <ArrowRightCircle size={25} />
